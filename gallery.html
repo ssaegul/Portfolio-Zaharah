@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #a0ce4e;
+            transition: transform 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #a0ce4e;
+            transform: translateY(-5px);
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            margin-top: 100px; /* Offset for the fixed header */
+            padding: 20px;
+        }
+
+        .title-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #a0ce4e;
+            margin-bottom: 10px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .title-section p {
+            font-size: 1.2rem;
+            color: white;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Carousel */
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 50px;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .carousel .card-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        .carousel .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .carousel .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .carousel .card h3 {
+            color: black;
+            font-size: 1.2rem;
+            padding: 15px;
+        }
+
+        .carousel .card p {
+            color: black;
+            font-size: 0.9rem;
+            padding: 0 15px 15px;
+        }
+
+        .carousel .card button {
+            display: block;
+            margin: 10px auto 20px;
+            padding: 8px 15px;
+            background-color: #a0ce4e;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel .card button:hover {
+            background-color: #7fa13d;
+            transform: scale(1.1);
+        }
+
+        .carousel .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #a0ce4e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel .arrow:hover {
+            background-color: #7fa13d;
+            transform: scale(1.2);
+        }
+
+        .carousel .arrow.left {
+            left: -50px;
+        }
+
+        .carousel .arrow.right {
+            right: -50px;
+        }
+
+        .button-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #a0ce4e;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #7fa13d;
+    transform: scale(1.1);
+}
+
+        /* Audio Player */
+        .audio-player {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .audio-player audio {
+            animation: popIn 1s ease-out;
+            border-radius: 10px;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer a {
+            color: #a0ce4e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #7fa13d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">PortFolio</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Title Section -->
+    <section class="title-section" id="home">
+        <h1>Explore My Gallery</h1>
+        <p>"Sometimes, the smallest moments become the biggest memories."</p>
+        <p>It illustrates the importance of savoring the small moments that are particularly meaningful to us.
+.</p>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Carousel -->
+        <div class="carousel">
+            <button class="arrow left">&#8592;</button>
+            <div class="card-container">
+                <div class="card">
+                    <img src="p16.jpg" alt="Me, Myself and I">
+                    <h3>Me, Myself and I</h3>
+                    <p>Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est nisl.</p>
+                    <a href="memyselfandi.html" class="button-link">Read More</a>
+
+                </div>
+                <div class="card">
+                    <img src="p17.jpg" alt="My Family">
+                    <h3>My Family</h3>
+                    <p>Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est nisl.</p>
+                    <a href="Family.html" class="button-link">Read More</a>
+
+                </div>
+                <div class="card">
+                    <img src="p36.jpg" alt="My Boyfriend">
+                    <h3>My Boyfriend</h3>
+                    <p>Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est nisl.</p>
+                    <a href="boyfriend.html" class="button-link">Read More</a>
+
+                </div>
+                <div class="card">
+                    <img src="p19.jpg" alt="My Friends">
+                    <h3>My Friends</h3>
+                    <p>Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus est nisl.</p>
+                    <a href="Friends.html" class="button-link">Read More</a>
+                </div>
+            </div>
+            <button class="arrow right">&#8594;</button>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <audio controls autoplay loop>
+                <source src="joji.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Travel Agency. All rights reserved.</p>
+        <p>Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for carousel navigation
+        document.addEventListener('DOMContentLoaded', () => {
+            const leftArrow = document.querySelector('.arrow.left');
+            const rightArrow = document.querySelector('.arrow.right');
+            const cardContainer = document.querySelector('.card-container');
+            const cards = document.querySelectorAll('.card');
+
+            const cardWidth = cards[0].offsetWidth + 20; // Card width + gap between cards
+            let scrollAmount = 0;
+
+            leftArrow.addEventListener('click', () => {
+                scrollAmount -= cardWidth;
+                if (scrollAmount < 0) {
+                    scrollAmount = 0; // Prevent scrolling to negative
+                }
+                cardContainer.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            rightArrow.addEventListener('click', () => {
+                const maxScroll = cardContainer.scrollWidth - cardContainer.clientWidth;
+                scrollAmount += cardWidth;
+                if (scrollAmount > maxScroll) {
+                    scrollAmount = maxScroll; // Prevent scrolling beyond the last card
+                }
+                cardContainer.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

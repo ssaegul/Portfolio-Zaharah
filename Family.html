@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Picture</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            margin: 20px auto;
+            color: white;
+        }
+
+        .title-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .title-section p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Slideshow Section */
+        .slideshow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 90%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .image-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container {
+            flex: 0 0 25%;
+            margin: 0 5px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Descriptions */
+        .description {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .description {
+            display: block;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+
+        .nav-button.left {
+            left: 10px;
+        }
+
+        .nav-button.right {
+            right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">home</div>
+    </header>
+
+    <!-- Title Section -->
+    <div class="title-section">
+        <h2>Welcome to the Family Album</h2>
+        <p>Relive beautiful memories and cherish moments spent with loved ones. Explore the gallery below to revisit our adventures together.</p>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <button class="nav-button left">&lt;</button>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="f2.jpg" alt="Family Picnic">
+                <div class="description">Family Picnic on a Sunny Day</div>
+            </div>
+            <div class="image-container">
+                <img src="f4.jpg" alt="Beach Holiday">
+                <div class="description">Relaxing on the Beach during Summer Vacation</div>
+            </div>
+            <div class="image-container">
+                <img src="f14.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f9.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f15.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f8.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f3.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f10.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f12.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f13.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f11.jpg" alt="Graduation Day">
+                <div class="description">Celebrating Graduation with Family</div>
+            </div>
+            <div class="image-container">
+                <img src="f12.jpg" alt="Mountain Hike">
+                <div class="description">Adventure Day: Hiking the Mountains</div>
+            </div>
+        </div>
+        <button class="nav-button right">&gt;</button>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Enhanced Image Gallery. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const wrapper = document.querySelector('.image-wrapper');
+        const leftButton = document.querySelector('.nav-button.left');
+        const rightButton = document.querySelector('.nav-button.right');
+        const images = document.querySelectorAll('.image-container');
+        const containerWidth = images[0].offsetWidth + 10; // Image width + margin
+        const totalImages = images.length;
+        const visibleImages = 4; // Number of visible images
+        let currentIndex = 0;
+
+        function updateSlidePosition() {
+            const offset = -(currentIndex * containerWidth);
+            wrapper.style.transform = `translateX(${offset}px)`;
+        }
+
+        leftButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlidePosition();
+            }
+        });
+
+        rightButton.addEventListener('click', () => {
+            if (currentIndex < totalImages - visibleImages) {
+                currentIndex++;
+                updateSlidePosition();
+            }
+        });
+
+        // Auto Slide
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % (totalImages - visibleImages + 1);
+            updateSlidePosition();
+        }, 3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Picture</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Image Section */
+        .image-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 50px auto;
+            width: 80%;
+        }
+
+        .image-container {
+            flex: 1 1 calc(33.333% - 20px);
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 400px; /* Tetapkan ukuran tetap */
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animation for click */
+        .zoom-rotate {
+            animation: zoom-rotate 0.5s ease forwards;
+        }
+
+        @keyframes zoom-rotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(10deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Friend Album</div>
+    </header>
+
+    <!-- Image Section -->
+    <section class="image-section">
+        <div class="image-container">
+            <img src="k1.jpg" alt="Image 1">
+        </div>
+        <div class="image-container">
+            <img src="k2.jpg" alt="Image 2">
+        </div>
+        <div class="image-container">
+            <img src="k3.jpg" alt="Image 3">
+        </div>
+        <div class="image-container">
+            <img src="k4.jpg" alt="Image 4">
+        </div>
+        <div class="image-container">
+            <img src="k5.jpg" alt="Image 5">
+        </div>
+        <div class="image-container">
+            <img src="k6.jpg" alt="Image 6">
+        </div>
+        <div class="image-container">
+            <img src="k7.jpg" alt="Image 6">
+        </div>
+        <div class="image-container">
+            <img src="k8.jpg" alt="Image 6">
+        </div>
+        <div class="image-container">
+            <img src="k9.jpg" alt="Image 7">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Image Gallery. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.image-container img');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                image.classList.add('zoom-rotate');
+                setTimeout(() => image.classList.remove('zoom-rotate'), 500);
+            });
+        });
+    </script>
+
+</body>
+</html>

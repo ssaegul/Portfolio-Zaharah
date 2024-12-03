@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Music</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url(background.jpg);
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Styling */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ff9d;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 200;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+
+        .sidebar.visible {
+            left: 0;
+            pointer-events: auto; /* Allow interaction when visible */
+        }
+
+        .sidebar .sidebar-image {
+            position: absolute; /* Makes it easy to control position */
+            right: 50px; /* Distance from the right edge */
+            top: 20px; /* Distance from the top edge */
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00ff9d;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            margin-top: 130px; /* Adjust margin to avoid overlapping with the image */
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.6);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            background: #00ff9d;
+            transform: translateX(10px);
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            background: #00ff9d;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 300; /* Ensure it is above the sidebar */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        .cd-container {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 120px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .player-container {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .cd {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: url('p18.jpg') no-repeat center;
+            background-size: cover;
+            border: 4px solid #00ff9d;
+            box-shadow: 0 8px 15px rgba(0, 255, 157, 0.5);
+            position: relative;
+            animation: spin 10s linear infinite;
+        }
+
+        .cd:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .title {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .artist {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        audio {
+            margin-top: 10px;
+            width: 250px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spinning CD Player</h1>
+        <nav>
+            <a href="index3.html">Home</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Achievement.html">Achievement</a>
+            <a href="Contact Me.html">Contact</a>
+        </nav>
+    </header>
+
+    <button class="toggle-btn" id="toggleButton">☰</button>
+
+    <div class="sidebar" id="sidebar">
+        <img src="p18.jpg" alt="Profile Image" class="sidebar-image">
+        <ul>
+            <li><a href="music.html">☎️ Malay</a></li>
+            <li><a href="indonesianalbum.html">🎥 Indonesia</a></li>
+            <li><a href="koreanalbum.html">📂 Korean</a></li>
+            <li><a href="englishalbum.html">👩‍👩‍👧‍👦 English</a></li>
+            <li><a href="Contact Me.html">Contact Me</a></li>
+        </ul>
+    </div>
+
+    <div class="cd-container">
+        <h2>My Music Collection</h2>
+        <p>Discover My Favourite Malay Song</p>
+
+        <!-- Player 1 -->
+        <div class="player-container">
+            <div class="cd" style="background: url('pm1.jpg') no-repeat center; background-size: cover;"></div>
+            <div class="title">Golden Hits</div>
+            <div class="artist">John Doe</div>
+            <audio controls>
+                <source src="dipenjarajanji.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Player 2 -->
+        <div class="player-container">
+            <div class="cd" style="background: url('pm2.jpg') no-repeat center; background-size: cover;"></div>
+            <div class="title">Classical Vibes</div>
+            <div class="artist">Jane Smith</div>
+            <audio controls>
+                <source src="akubukanlahsuperman.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Player 3 -->
+        <div class="player-container">
+            <div class="cd" style="background: url('pm3.jpg') no-repeat center; background-size: cover;"></div>
+            <div class="title">Rock Classics</div>
+            <div class="artist">The Rockers</div>
+            <audio controls>
+                <source src="akulahkekasihmu.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('visible');
+        });
+    </script>
+</body>
+</html>

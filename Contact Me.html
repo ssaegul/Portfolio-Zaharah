@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <title>Contact Me</title>
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url(background.jpg);
+            color: #009688;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: black;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #adff87;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: transparent;
+            border-radius: 25px;
+            font-weight: bold;
+            border: 5px solid #29f702;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 2.5em;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            margin-top: 55px; /* Offset for fixed navbar */
+            transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+        }
+
+        .hero:hover {
+            background-color: #29f702;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.0em;
+            margin-top: 20px;
+            font-style: italic;
+            color: #fff;
+        }
+
+        /* Phone Emoji Pop-up */
+        .phone-emoji {
+            font-size: 3em;
+            position: absolute;
+            animation: phoneMove 3s ease-in-out infinite;
+            z-index: 2000;
+        }
+
+        .phone-emoji:nth-child(1) {
+            top: -10%;
+            left: 50%;
+            animation-delay: 0.2s;
+        }
+
+        .phone-emoji:nth-child(2) {
+            top: 20%;
+            left: -10%;
+            animation-delay: 0.5s;
+        }
+
+        .phone-emoji:nth-child(3) {
+            top: 80%;
+            left: 110%;
+            animation-delay: 0.8s;
+        }
+
+        .phone-emoji:nth-child(4) {
+            top: 40%;
+            left: 110%;
+            animation-delay: 1s;
+        }
+
+        .phone-emoji:nth-child(5) {
+            top: -10%;
+            left: -10%;
+            animation-delay: 1.2s;
+        }
+
+        .phone-emoji:nth-child(6) {
+            top: 50%;
+            left: -20%;
+            animation-delay: 1.5s;
+        }
+
+        .phone-emoji:nth-child(7) {
+            top: 90%;
+            left: -10%;
+            animation-delay: 1.8s;
+        }
+
+        .phone-emoji:nth-child(8) {
+            top: 100%;
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        /* Phone Emoji Animation */
+        @keyframes phoneMove {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                top: 50%;
+                left: 50%;
+                opacity: 0;
+            }
+
+ 
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index3.html">Home</a></li>
+            <li><a href="#Achievement.html">Achievement</a></li>
+            <li><a href="#Project.html">Project</a></li>
+            <li><a href="#Gallery.html">Gallery</a></li>
+            
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" onclick="window.location.href='https://iszalex.github.io/link/ayang.html'">
+        <h1>CONTACT</h1>
+        <p><u>Facebook | Whatsapp | Instagram</u></p>
+    <p>click here to contact me</p>
+</section>
+        
+
+    <!-- Multiple Phone Emojis Pop-up -->
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+    <div class="phone-emoji">📞</div>
+
+    <!-- Audio for Ringing Sound -->
+    <audio autoplay loop>
+        <source src="nokia.mp3" type="audio/mp3">
+    </audio>
+
+</body>
+</html>

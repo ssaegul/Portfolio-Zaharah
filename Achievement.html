@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Ensure full height for body and html */
+        body, html {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #a0ce4e;
+            transition: transform 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #a0ce4e;
+            transform: translateY(-5px);
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            margin-top: 100px; /* Offset for the fixed header */
+            padding: 20px;
+        }
+
+        .title-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #a0ce4e;
+            margin-bottom: 10px;
+            animation: slideIn 1s ease-out;
+        }
+
+        .title-section p {
+            font-size: 1.2rem;
+            color: white;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Video Section Above Audio */
+        .video-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .video-section video {
+            max-width: 50%;  /* Adjust the size of the video */
+            height: 400px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Audio Player */
+        .audio-player {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .audio-player audio {
+            animation: popIn 1s ease-out;
+            border-radius: 10px;
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Achievement Table */
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            color: white;
+            border: 1px solid #a0ce4e;
+        }
+
+        th {
+            background-color: #a0ce4e;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #444;
+        }
+
+        td img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: auto; /* Push the footer to the bottom */
+            transition: background-color 0.3s ease;
+        }
+
+        footer a {
+            color: #a0ce4e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #7fa13d;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">PortFolio</div>
+        <nav>
+            <ul>
+                <li><a href="index3.html">Back</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Contact Me.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Title Section -->
+    <section class="title-section" id="home">
+        <h1>My Achievement</h1>
+        <p><i>Achieving success involves more than just climbing a mountain; it also involves overcoming obstacles, learning lessons, and developing as a person during the process. Accept every step of the process since it helps to fortify your spirit and mold your story. Here i include the table of My Achievement.</i></p>
+    </section>
+
+    <!-- Video Section Above Audio -->
+    <section class="video-section">
+        <video controls autoplay loop>
+            <source src="v1.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <audio controls autoplay loop>
+                <source src="joji.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Achievement Table with Images -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Home</th>
+                    <th>Achievement</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Appointed Treasurer of Al-Falah Club</td>
+                    <td>2023</td>
+                    <td>Responsible for maintaining financial records and budgets.</td>
+                    <td><a href="Bendahari.jpg"><img src="Bendahari.jpg"></a>              </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Dean's Award</td>
+                    <td>2024</td>
+                    <td>chieved a GPA of 3.72 and significantly improved CGPA.</td>
+                    <td><object data="mini transkrip.pdf" type="Transkrip/pdf" width="100%" height="600px">
+    <p> <a href="mini transkrip.pdf">Download the PDF</a>.</p>
+</object>
+</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Head of Management Program</td>
+                    <td>2024</td>
+                    <td>Successfully led the Human Resource Management program.</td>
+                    <td><a href="p48.jpg"><img src="p48.jpg"></a>  </td>
+                </tr>
+                 <tr>
+                    <td>4</td>
+                    <td>Built My Portfolio Website</td>
+                    <td>2024</td>
+                    <td>created and designed a website for my own portfolio to highlight my accomplishments, abilities, and projects. This project integrates contemporary technologies and frameworks for a smooth user experience, showcasing my mastery of web programming and design ideas.</td>
+                    <td><img src="p19.jpg" alt="Portfolio Website"></td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Head of Residential College Wing</td>
+                    <td> 2024</td>
+                    <td>Ensured cleanliness and managed wing operations.</td>
+                    <td><a href="p49.jpg"><img src="p49.jpg"></a>  </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nur Zaharah Binti Zulkarna'en. All rights reserved.</p>
+        <p>Follow us: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+    </footer>
+</body>
+</html>

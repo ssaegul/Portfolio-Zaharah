@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> About Me </title>
+
+</head>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio | Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            background-image:linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url(background.jpg);
+            color: black;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color:black;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #adff87;
+            color: white;
+        }
+       
+        /* Hero Section */
+        .hero {
+    background: transparent;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 5px solid #29f702;
+    color: #fff; /* Default text color */
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 55px; /* Offset for fixed navbar */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover Effect - Background Color Fill */
+.hero:hover {
+    background-color: #29f702; /* Fill with green color */
+    color: #fff; /* Maintain text color after hover */
+    transform: scale(1.05); /* Slight scale-up effect */
+}
+
+/* Hover Effect - Glowing Border (optional) */
+.hero:hover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px;
+    background: rgba(41, 247, 2, 0.6); /* Glow color */
+    box-shadow: 0 0 10px #29f702; /* Glow effect */
+    animation: glowAnimation 1.5s infinite alternate; /* Continuous glowing effect */
+}
+
+/* Glowing Effect Animation */
+@keyframes glowAnimation {
+    0% {
+        box-shadow: 0 0 10px #29f702, 0 0 20px #29f702, 0 0 30px #29f702;
+    }
+    100% {
+        box-shadow: 0 0 20px #29f702, 0 0 40px #29f702, 0 0 60px #29f702;
+    }
+}
+
+/* Optional - For touch interactions on mobile devices (using hover on touch-enabled screens) */
+@media (hover: none) and (pointer: coarse) {
+    .hero:active {
+        background-color: #29f702;
+        color: #fff; /* Maintain text color for mobile */
+    }
+}
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+.video-container {
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+video {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+}
+
+.video-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+        /* Skills Section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skill {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Experience and Education */
+         .experience, .education { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    width: 100%; 
+    height: 300px; 
+    perspective: 1000px;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; 
+    transition: transform 0.6s; 
+}
+
+/* Flip the card when hovered */
+.card:hover .card-inner {
+    transform: rotateY(180deg); 
+}
+
+.card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; 
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* The front side of the card */
+.card-front {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+/* The back side of the card */
+.card-back {
+    background-color: #f1f1f1;
+    transform: rotateY(180deg); 
+    padding-top: 30px; 
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Button Styling - Specific to Back Side */
+.card-back .btn {
+    align-self: center; /* Center the button horizontally */
+    margin-top: auto; /* Push the button to the bottom of the content */
+    padding: 10px 20px;
+    background-color: #adff87;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-back .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.card p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1em;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        footer .social-icons {
+            margin: 20px 0;
+        }
+
+        footer .social-icons a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #8A2BE2;
+        }
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .experience, .education {
+                grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                width: 90%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index3.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="Contact Me.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>[WELCOME!!]</h1>
+        <p> Infographic Poster | Designer | Content Creator</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="content-section">
+        <h2 class="section-title">°❀⋆.ೃ࿔About<sub> Me</sub>°❀⋆.ೃ࿔</h2>
+  
+    <audio autoplay loop>
+        <source src="ringin.mp3" type="audio/mp3">
+    </audio>
+
+   <div class="video-container">
+        <video id="about-video" autoplay muted loop controls width="400">
+            <source src="v3.mp4" type="video/mp4">
+            <source src="v3.ogg" type="video/ogg">
+           
+        </video>
+    </div>       
+<p>Hello, my name is <u>Nur Zaharah Binti Zulkarna'en.</u> I am 20 years old in 2024. I was born on March 27, 2004. I'm a student, you see .I am from Kulai, Johor. I am studying in Information Management. information management is one of the courses that I have chosen when filling up the UPU. in the beginning, I was not very fond of continuing my studies when I received the UPU decision because I did not have any knowledge about Information Management. But, after my 5 semesters here, I have seen my future and I am very interested in this major. So this is one proof that I really live my learning sessions.Welcome to my website!!'*•.¸♡ ♡¸.•*'
+</p> 
+<br>
+         <p> why should you all read this website? 
+         <ul style= "list-style-type:circle">
+             <li>I will show how i Design Infographic Website</li>
+             <li>Inspiration for the younger generation</li>
+             <li>An inspirational personal story</li>
+         </ul>
+         </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="content-section">
+        <h2 class="section-title">°❀⋆.ೃ࿔Skills°❀⋆.ೃ࿔</h2>
+        <div class="skills">
+            <div class="skill">Leadership</div>
+            <div class="skill">Communication</div>
+            <div class="skill">Critical-Thinking</div>
+            <div class="skill">Responsibility</div>
+            <div class="skill">Soft-Skill</div>
+            <div class="skill">Design</div>
+            <div class="skill">Marketing</div>
+            <div class="skill">Data-Analysis</div>
+        </div>
+    </section>
+
+ <!-- Experience Section --> 
+<section id="experience" class="content-section">
+    <h2 class="section-title">°❀⋆.ೃ࿔Experience°❀⋆.ೃ࿔</h2>
+    <div class="experience">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Waiter</h3>
+                    </div>
+                    <p>IOI Palm Villa Golf & Country Resort</p>
+                    <p>July 2023 - September 2023</p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>Worked as a customer service at a 5-star restaurant at <b>IOI Palm Villa Golf & Country Resort, Kulai.Johor</b>. My job is to take food orders, send food orders, and ensure customer satisfaction.</p>
+                    <a href="https://www.google.com/maps/place/IOI+Palm+Villa+Golf+%26+Country+Club/@1.6571386,103.6395534,754m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31da7a28aacc8e25:0x97fe7b03abe78dd9!8m2!3d1.6571386!4d103.6421283!16s%2Fg%2F11b7qqsg3q?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Internship</h3>
+                    </div>
+                    <p>Majlis Perbandaran Kulai</p>
+                    <p>Julai-September 2024</p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>I am a graduate student in Information management. In the 4th year, I had an internship at <b>MPKu</b> for 2 months and I was placed in the law department . I've done a lot of things like manage compound Affairs parking and act.</p>
+                 <a href="https://www.google.com/maps/place/Majlis+Perbandaran+Kulai/@1.6585754,103.6038963,754m/data=!3m1!1e3!4m6!3m5!1s0x31da79a491401101:0x4031ecfbdffc4c47!8m2!3d1.6585754!4d103.6064712!16s%2Fm%2F03wg3ql?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Operator</h3>
+                    </div>
+                    <p>IOI Palm Villa Golf & Country Resort</p>
+                    <p>July 2023 - September 2023</p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>I have accumulated experience working as a frozen food factory operator since I was 14 years old, Kilang is located in 
+<b>Johor Bahru, Johor · Taman Kulai Besar, Johor.</b> I work as a refinery Operator . I was assigned to fill the core and take care of the bread-making machine. I worked here officially after I finished the spm exam.</p>
+                    <a href="https://www.google.com/maps/place/Kawasan+Perindustrian+Kelapa+Sawit,+81000+Kulai,+Johor/@1.6734565,103.5359822,3015m/data=!3m2!1e3!4b1!4m6!3m5!1s0x31da78824bf10929:0x578a1a20fc4eec8e!8m2!3d1.6743678!4d103.5465835!16s%2Fg%2F1hc94dkxx?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+   
+</section>
+
+<!-- Education Section -->
+<section id="education" class="content-section">
+    <h2 class="section-title">°❀⋆.ೃ࿔Education°❀⋆.ೃ࿔</h2>
+    <div class="experience">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Universiti Teknologi MARA</h3>
+                    </div>
+                    <p>August 2022- Present</p>
+                    <p><i>(UiTM)</i></p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>UiTM segamat is located at Jalan Universiti Off, KM 12, Jalan Muar, Kemajuan Tanah Jementah Batu Sebelas, 85000 Segamat, Johorsi entered UiTM in 2022, when it was my first year as a new student at UiTM. I am also an information management student in my final year for 3 years.</p>
+                    <a href="https://uitm.edu.my/index.php/en/" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Sijil Darjah Khas</h3>
+                    </div>
+                    <p><i> (SDKA)</i></p>
+                    <p>SK Bandar Putra</p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>In 2017, I took the DKA certificate at Sekolah Agama Bandar Putra . At that time, I was only 13 years old.This certificate helped me find opportunities to become a Kafa teacher in the state of Johor and given priority to work in the government sector in the state of Johor.</p>
+                    <a href="https://www.facebook.com/Sabp2Kulai/?locale=ms_MY" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+         <div class="card">
+            <div class="card-inner">
+                <!-- Front Side -->
+                <div class="card-front">
+                    <div class="card-header">
+                        <h3>Sijil Pelajaran Malaysia</h3>
+                    </div>
+                    <p><i> (SPM)</i></p>
+                    <p>SMK Bandar Putra</p>
+                </div>
+                <!-- Back Side -->
+                <div class="card-back">
+                    <p>SMK Bandar Putra is my high school in 2017-2022. I am the second batch of SPM promax 2.0 batch who took spm during mco. I am actively involved in various programs, activities and sports such as netball,seminars and camping.</p>
+                         <a href="http://smkbp.edu.my/v1/" class="btn" target="_blank">View Details</a>
+                </div>
+            </div>
+        </div>
+  </div>
+</section>
+
+
+
+ <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 [Nur Zaharah Binti Zulkarna'en]. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://www.github.com" target="_blank">GitHub</a>
+        </div>
+    </footer>
+<script>
+document.getElementById("play-btn").addEventListener("click", function () {
+    const video = document.getElementById("about-video");
+    const overlay = document.getElementById("video-overlay");
+    
+    // Start playing the video
+    video.play();
+    
+    // Add a transition effect
+    video.style.transform = "scale(1.05)";
+    
+    // Hide the overlay
+    overlay.classList.add("hidden");
+    
+    // Reset video transform after transition
+    setTimeout(() => {
+        video.style.transform = "scale(1)";
+    }, 500);
+});
+</script>
+
+</body>
+</html>

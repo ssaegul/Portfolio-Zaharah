@@ -1,0 +1,109 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Judul Besar */
+.main-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Navigation Buttons */
+.navigation {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navigation button:hover {
+    background-color: #555;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.card {
+    flex: 1 0 100%;
+    max-width: 300px;
+    background: white;
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, z-index 0.5s;
+    position: absolute;
+    opacity: 0.7;
+    transform: scale(0.8);
+    z-index: 1;
+}
+
+.card.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+.card h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Media Carousel */
+.media-carousel {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.media-carousel img,
+.media-carousel video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.media-carousel .carousel-item.active img,
+.media-carousel .carousel-item.active video {
+    display: block;
+}

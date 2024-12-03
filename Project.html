@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: white;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+
+        header .logo span {
+            color: #a0ce4e;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #a0ce4e;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 20px;
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .text-content {
+            max-width: 50%;
+        }
+
+        .text-content h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .text-content h2 span {
+            color: #a0ce4e;
+        }
+
+        .text-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .explore-btn {
+            background-color: #a0ce4e;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            background-color: #7fa13d;
+        }
+
+        /* Card Carousel */
+        .slide-container {
+            position: relative;
+            width: 100%; /* Adjusted to fit larger cards */
+            overflow: hidden;
+        }
+
+        .card-wrapper {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            flex: 0 0 250px; /* Increased size of cards */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            background-color:white; 
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px; /* Increased height for larger cards */
+            object-fit: cover;
+            border: 10px solid white;
+            border-radius: 15px; 
+        }
+
+        .card-description {
+            padding: 15px;
+            font-size: 1rem; /* Increased font size for better readability */
+            color: #555;
+        }
+        .card.card button {
+            display: block;
+            margin: 10px auto 20px;
+            padding: 10px 20px;
+            background-color: #a0ce4e;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .card.card button:hover {
+            background-color: #7fa13d;
+        }
+
+
+        /* Slide Buttons */
+        .slide-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #a0ce4e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1;
+            transition: background-color 0.3s ease;
+        }
+
+        .slide-button:hover {
+            background-color: #7fa13d;
+        }
+
+        .slide-button.left {
+            left: 10px;
+        }
+
+        .slide-button.right {
+            right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: auto; /* Push the footer to the bottom */
+            transition: background-color 0.3s ease;
+        }
+
+        footer a {
+            color: #a0ce4e;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #7fa13d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1> Port <span><sup><i>Folio</i></sup></span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index3.html">Home</a></li>
+                <li><a href="Achievement.html">Achievement</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Contact Me.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="text-content">
+                <h2>Explore <span> My Work </span></h2>
+                <h3>Discover New <sup>Work</sup></h3>
+                <p>I have been working on this project for the past 5 years as an Information Management student.</p>
+                <p>among them such as:
+                 <ol>
+                   <li>Movie Review</li>
+                   <li>Archive Infographic Poster </li>
+                   <li>Social Media In Outreach Program Poster</li>
+                   <li>Infographic Poster :<i> Mental Illness</i></li>
+                   <li>Magazine:<i> Health</i> </li>
+                </ol>
+               </p>
+                <button class="explore-btn">Read More</button>
+            </div>
+            <div class="slide-container">
+                <div class="card-wrapper">
+                    <div class="card">
+                        <img src="kungfupanda.jpg" alt="Paris">
+                        <div class="card-description">
+                            <p>Get to know about the review of Movie : Kungfu Panda</p>
+                             <a href="presentation.pdf" target="_blank">
+            <button class="explore-btn">Read More</button>
+        </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="poster1.png" alt="Japan">
+                        <div class="card-description">
+                            <p>Discover The use of Archive:Inforgraphic Poster </p>
+                            <a href="poster1.pdf" download>
+            <button class="explore-btn">Download PDF</button>
+        </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="poster2.png" alt="Japan">
+                        <div class="card-description">
+                            <p>Discover Social Media influence in Outreach Program.</p>
+                            <a href="poster2.pdf" download>
+            <button class="explore-btn">Download PDF</button>
+        </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="poster3.png" alt="Japan">
+                        <div class="card-description">
+                            <p>Discover Ways To Prevent Mental Illness.</p>
+                            <a href="poster3.pdf" download>
+            <button class="explore-btn">Download PDF</button>
+        </a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="magazine.png" alt="Rome">
+                        <div class="card-description">
+                            <p>Explore Magazine about Health dan healthy food</p>
+                            <a href="magazine.pdf" download>
+            <button class="explore-btn">Download PDF</button>
+        </a>
+                        </div>
+                    </div>
+                </div>
+                <button class="slide-button left" onclick="slidePrevious()">&#8592;</button>
+                <button class="slide-button right" onclick="slideNext()">&#8594;</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Nur Zaharah Binti Zulkarna'en. Made by Zara.</p>
+        <p>Follow us: <a href="#">Facebook</a> | <a href="https://www.instagram.com/ssaegul/profilecard/?igsh=eHZqazExN2ZiNGwx">Instagram</a> | <a href="https://www.tiktok.com/@bijneverever?_t=8rlXYak3HpY&_r=1">TikTok</a></p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.card');
+        const cardWrapper = document.querySelector('.card-wrapper');
+
+        function slideNext() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateSlider();
+        }
+
+        function slidePrevious() {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const cardWidth = cards[0].offsetWidth + 20;
+            cardWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+    </script>
+</body>
+</html>
