@@ -102,9 +102,12 @@
             margin: 20px auto; 
         }
         
+        /* Styling the Ordered List */
         .custom-ol {
-            list-style: none; 
+            list-style: none; /* Remove default numbering */
             padding: 0;
+            margin: 0;
+            width: 50%; /* Adjust width if needed */
         }
 
         .custom-ol li {
@@ -115,14 +118,19 @@
         }
 
         .custom-ol li::before {
-            content: "★ "; 
-            font-size: 1.5rem; 
-            color: #a0ce4e; 
+            content: "★ "; /* Replace default numbering with a star symbol */
+            font-size: 1.5rem; /* Change the size of the symbol */
+            color: #a0ce4e; /* Green color for the star */
             margin-right: 10px;
         }
 
+        /* Optional: Custom text styling for list items */
         .custom-ol li span {
             color: #555;
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Space between title and list */
         }
 
     </style>
