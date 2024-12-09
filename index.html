@@ -7,13 +7,14 @@
         <title>My First Website</title>
         <link rel="stylesheet" href="style.css">
 <script>
-        function updateClock() {
+function updateClock() {
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('clock').innerHTML = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').innerHTML = ${hours}:${minutes}:${seconds};
         }
+
         window.onload = function () {
             updateClock();
             setInterval(updateClock, 1000);
@@ -28,7 +29,8 @@
                 <ul>
                     <li><a href="Achievement.html">Achievement</a></li>
                     <li><a href="Project.html">Project</a></li>
-                    <li><a href="resume.pdf" target="_blank">Resume</a></li>
+                    <li><a href="Gallery.html">Gallery</a></li>
+                    <li><a href="Relative.html">Relative</a></li>
                     <li><a href="Contact Me.html">Contact Me</a></li>
                 </ul>
             </div>
@@ -39,15 +41,17 @@
                  <a href="About Me.html">
                      <button type="button"><span></span>ABOUT ME</button>
                  </a>
-                 <a href="Click Me.html">
-                        <button type="button"><span></span>CLICK ME</button>
+                 <a href="subscribe.html">
+                        <button type="button"><span></span>SUBSCRIBE</button>
                     </a>
+             
+
             <div class="clock">
                 <p id="clock"></p>   
             </div>
            </div>
 <footer>
-      <p>&copy; 2024 [Nur Zaharah Binti Zulkarna'en]. All Rights Reserved.</p>
+      <p>&copy; 2024 [Nur Zaharah Binti Zulakrna'en]. All Rights Reserved.</p>
         <div class="social-icons">
             <a href="https://www.facebook.com" target="_blank">Facebook</a>
             <a href="https://www.twitter.com" target="_blank">Twitter</a>
