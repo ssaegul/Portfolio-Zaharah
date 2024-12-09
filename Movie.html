@@ -18,6 +18,12 @@
             line-height: 1.6;
             background-image: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)), url('bg2.jpg');
             color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: flex-start;
+            min-height: 100vh; /* Ensure the body takes up full height */
+            text-align: center; /* Center text */
         }
 
         /* Navigation Bar */
@@ -58,6 +64,7 @@
             color: white;
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 60px; /* Prevent overlap with the fixed navbar */
             text-align: center;
@@ -101,13 +108,19 @@
             display: block;
             margin: 20px auto; 
         }
-        
-        /* Styling the Ordered List */
+
+        /* Custom Ordered List Styling */
+        .list-container {
+            text-align: center; /* Ensure title and list are centered */
+            margin-top: 50px;
+        }
+
         .custom-ol {
             list-style: none; /* Remove default numbering */
             padding: 0;
             margin: 0;
             width: 50%; /* Adjust width if needed */
+            display: inline-block;
         }
 
         .custom-ol li {
@@ -128,11 +141,6 @@
         .custom-ol li span {
             color: #555;
         }
-
-        h1 {
-            margin-bottom: 20px; /* Space between title and list */
-        }
-
     </style>
 </head>
 <body>
@@ -168,12 +176,15 @@
         <img src="demonslayer.jpg" alt="Movie Poster 4">
     </div>
 
+    <!-- Custom Ordered List Section -->
+    <div class="list-container">
         <h1>Custom Ordered List with Symbol</h1>
-    <ol class="custom-ol">
-        <li><span>First item with a custom symbol marker (star).</span></li>
-        <li><span>Second item with a custom symbol.</span></li>
-        <li><span>Third item with another symbol.</span></li>
-        <li><span>Fourth item styled with a symbol marker.</span></li>
-    </ol>
+        <ol class="custom-ol">
+            <li><span>First item with a custom symbol marker (star).</span></li>
+            <li><span>Second item with a custom symbol.</span></li>
+            <li><span>Third item with another symbol.</span></li>
+            <li><span>Fourth item styled with a symbol marker.</span></li>
+        </ol>
+    </div>
 </body>
 </html>
