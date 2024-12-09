@@ -99,8 +99,32 @@
 
         audio {
             display: block;
-            margin: 20px auto; /* Center audio player */
+            margin: 20px auto; 
         }
+        
+        .custom-ol {
+            list-style: none; 
+            padding: 0;
+        }
+
+        .custom-ol li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .custom-ol li::before {
+            content: "★ "; 
+            font-size: 1.5rem; 
+            color: #a0ce4e; 
+            margin-right: 10px;
+        }
+
+        .custom-ol li span {
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
@@ -135,5 +159,13 @@
         <img src="pool.jpg" alt="Movie Poster 6">
         <img src="demonslayer.jpg" alt="Movie Poster 4">
     </div>
+
+        <h1>Custom Ordered List with Symbol</h1>
+    <ol class="custom-ol">
+        <li><span>First item with a custom symbol marker (star).</span></li>
+        <li><span>Second item with a custom symbol.</span></li>
+        <li><span>Third item with another symbol.</span></li>
+        <li><span>Fourth item styled with a symbol marker.</span></li>
+    </ol>
 </body>
 </html>
