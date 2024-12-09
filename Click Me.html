@@ -16,6 +16,7 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('background.jpg');
             background-size: cover;
             background-position: center;
+            flex-direction: column; /* Arrange sections vertically */
         }
 
         .container {
@@ -47,6 +48,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         button {
@@ -64,6 +66,7 @@
             background-color: #009688;
             color: #fff;
         }
+
         .gif-after-buttons img {
             margin-top: 20px;
             width: 150px;
@@ -82,33 +85,38 @@
     </style>
 </head>
 <body>
+
 <div class="container">
+    <!-- First GIF Section -->
     <div class="gif-container">
         <a href="https://zty.pe/" target="_blank">
             <img src="gif1.gif" alt="Ooopss..!" />
         </a>
     </div>
-</div>
 
-        <h1>Ooopss..!</h1>
-        <h2><marquee behavior="scroll" direction="left" scrollamount="5">
-    Welcome to My This Page! Pleaase choose an option below.
-</marquee></h2>
+    <!-- Heading 1 -->
+    <h1>Ooopss..!</h1>
 
-        <!-- Buttons -->
-        <div class="buttons">
-            <a href="music.html"><button>Music</button></a>
-            <a href="Movie.html"><button>Watch Movie</button></a>
-            <a href="Gallery.html"><button>Photo Gallery</button></a>
-            <a href="videogallery.html"><button>Video Gallery</button></a>
-           
-        </div>
+    <!-- Heading 2 with marquee -->
+    <h2>
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            Welcome to My This Page! Pleaase choose an option below.
+        </marquee>
+    </h2>
 
-          <div class="gif-after-buttons">
-            <img src="gif2.gif" alt="Excited GIF">
-        </div>
-        
+    <!-- Buttons Section -->
+    <div class="buttons">
+        <a href="music.html"><button>Music</button></a>
+        <a href="Movie.html"><button>Watch Movie</button></a>
+        <a href="Gallery.html"><button>Photo Gallery</button></a>
+        <a href="videogallery.html"><button>Video Gallery</button></a>
     </div>
+
+    <!-- Second GIF Section -->
+    <div class="gif-after-buttons">
+        <img src="gif2.gif" alt="Excited GIF">
+    </div>
+</div>
 
 </body>
 </html>
