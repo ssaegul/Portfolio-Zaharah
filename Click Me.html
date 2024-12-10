@@ -124,6 +124,25 @@
             color: #00ffcc;
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
         }
+
+        /* Styling for the three horizontal images */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 80px; /* Adjust image size */
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -154,7 +173,13 @@
         <a href="videogallery.html"><button>Video Gallery</button></a>
     </div>
 
-    
+    <!-- Image container with three images -->
+    <div class="image-container">
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+    </div>
+
     <div class="gif-after-buttons">
         <img src="gif2.gif" alt="Excited GIF">
     </div>
