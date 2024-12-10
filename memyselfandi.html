@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Slider with Header</title>
+    <title>My-self Gallery</title>
     <style>
-        /* General Reset */
+        
         * {
             margin: 0;
             padding: 0;
@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* Header */
+       
         header {
             position: fixed;
             top: 0;
@@ -56,7 +56,7 @@
             color: #a0ce4e;
         }
 
-        /* Title Section */
+       
         .title-section {
             text-align: center;
             margin-top: 80px;
@@ -90,7 +90,7 @@
 
         .card {
             position: relative;
-            flex: 0 0 25%; /* 4 cards visible */
+            flex: 0 0 25%; 
             padding: 10px;
             box-sizing: border-box;
         }
@@ -164,7 +164,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    
     <header>
         <div class="logo">My Slider</div>
         <nav>
@@ -176,13 +176,13 @@
         </nav>
     </header>
 
-    <!-- Title Section -->
+    
     <section class="title-section" id="home">
         <h1>Me Myself and I</h1>
         <p>"Discover the world's most amazing locations."</p>
     </section>
 
-    <!-- Slider Section -->
+    
     <div class="slider-container">
         <button class="arrow left">&#8592;</button>
         <div class="slider-wrapper">
@@ -190,14 +190,14 @@
                 <img src="p18.jpg" alt="Image 1">
                 <div class="overlay">
                     <h3>Beautiful Beach</h3>
-                    <p>Amazing views of the ocean.</p>
+                    <p>Hang out with Cousins</p>
                 </div>
             </div>
             <div class="card">
                 <img src="p42.jpg" alt="Image 2">
                 <div class="overlay">
                     <h3>Mountain Escape</h3>
-                    <p>Breathtaking mountain scenery.</p>
+                    <p>Go out eating at Pallete Cafe.</p>
                 </div>
             </div>
             <div class="card">
@@ -218,35 +218,35 @@
                 <img src="p16.jpg" alt="Image 3">
                 <div class="overlay">
                     <h3>City Lights</h3>
-                    <p>Experience the vibrant city life.</p>
+                    <p>Posing after NR.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="p40.jpg" alt="Image 3">
                 <div class="overlay">
                     <h3>City Lights</h3>
-                    <p>Experience the vibrant city life.</p>
+                    <p>Outing with cousin again.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="p13.jpg" alt="Image 3">
                 <div class="overlay">
                     <h3>City Lights</h3>
-                    <p>Experience the vibrant city life.</p>
+                    <p>Presentation's Outfit.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="p41.jpg" alt="Image 3">
                 <div class="overlay">
                     <h3>City Lights</h3>
-                    <p>Experience the vibrant city life.</p>
+                    <p>After Cinema.</p>
                 </div>
             </div>
             <div class="card">
                 <img src="p16.jpg" alt="Image 4">
                 <div class="overlay">
                     <h3>Peaceful Forest</h3>
-                    <p>Reconnect with nature.</p>
+                    <p>Aidilfitri Picture</p>
                 </div>
             </div>
         </div>
@@ -263,14 +263,14 @@
             const cardsPerView = 4;
             let currentIndex = 0;
 
-            // Update the slider position based on the current index
+           
             function updateSlider() {
-                const cardWidth = cards[0].offsetWidth + 20; // Include padding
+                const cardWidth = cards[0].offsetWidth + 20; 
                 const offset = -currentIndex * cardWidth;
                 sliderWrapper.style.transform = `translateX(${offset}px)`;
             }
 
-            // Navigate manually with arrows
+            
             leftArrow.addEventListener('click', () => {
                 if (currentIndex > 0) {
                     currentIndex--;
@@ -285,15 +285,15 @@
                 }
             });
 
-            // Automatic slideshow every 3 seconds
+            
             setInterval(() => {
                 if (currentIndex < cardCount - cardsPerView) {
                     currentIndex++;
                 } else {
-                    currentIndex = 0; // Reset to the first set of cards
+                    currentIndex = 0; 
                 }
                 updateSlider();
-            }, 3000); // Change slide every 3 seconds
+            }, 3000); 
         });
     </script>
 </body>
