@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family Picture</title>
     <style>
-        /* General Reset */
+        
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
 
-        /* Header */
+        
         header {
             background-color: rgba(0, 0, 0, 0.8);
             color: white;
@@ -33,7 +33,7 @@
             font-weight: bold;
         }
 
-        /* Title Section */
+        
         .title-section {
             text-align: center;
             margin: 20px auto;
@@ -52,7 +52,7 @@
             margin: 0 auto;
         }
 
-        /* Slideshow Section */
+        
         .slideshow-container {
             display: flex;
             align-items: center;
@@ -88,7 +88,7 @@
             transform: scale(1.1) rotate(5deg);
         }
 
-        /* Descriptions */
+        
         .description {
             display: none;
             position: absolute;
@@ -108,7 +108,7 @@
             display: block;
         }
 
-        /* Navigation Buttons */
+        
         .nav-button {
             position: absolute;
             top: 50%;
@@ -130,7 +130,7 @@
             right: 10px;
         }
 
-        /* Footer */
+        
         footer {
             background-color: #333;
             color: white;
@@ -146,47 +146,47 @@
 </head>
 <body>
 
-    <!-- Header -->
+    
     <header>
-        <div class="logo">home</div>
+        <div class="logo">Familly Gallery</div>
     </header>
 
-    <!-- Title Section -->
+    
     <div class="title-section">
         <h2>Welcome to the Family Album</h2>
         <p>Relive beautiful memories and cherish moments spent with loved ones. Explore the gallery below to revisit our adventures together.</p>
     </div>
 
-    <!-- Slideshow Section -->
+    
     <div class="slideshow-container">
         <button class="nav-button left">&lt;</button>
         <div class="image-wrapper">
             <div class="image-container">
-                <img src="f2.jpg" alt="Family Picnic">
-                <div class="description">Family Picnic on a Sunny Day</div>
+                <img src="f2.jpg" alt="Family Picture">
+                <div class="description">Family Picnic on a Sunny </div>
             </div>
             <div class="image-container">
-                <img src="f4.jpg" alt="Beach Holiday">
-                <div class="description">Relaxing on the Beach during Summer Vacation</div>
+                <img src="f4.jpg" alt="Family Holiday">
+                <div class="description">Wedding at Sendayan</div>
             </div>
             <div class="image-container">
-                <img src="f14.jpg" alt="Graduation Day">
-                <div class="description">Celebrating Graduation with Family</div>
+                <img src="f14.jpg" alt="Family Time">
+                <div class="description">Eating Cendol at Malacca</div>
             </div>
             <div class="image-container">
-                <img src="f9.jpg" alt="Graduation Day">
-                <div class="description">Celebrating Graduation with Family</div>
+                <img src="f9.jpg" alt="Family Time">
+                <div class="description">Visiting Termerloh to meet our Relative</div>
             </div>
             <div class="image-container">
-                <img src="f15.jpg" alt="Graduation Day">
-                <div class="description">Celebrating Graduation with Family</div>
+                <img src="f15.jpg" alt="Family Time">
+                <div class="description">My sister' Wedding</div>
             </div>
             <div class="image-container">
-                <img src="f8.jpg" alt="Graduation Day">
-                <div class="description">Celebrating Graduation with Family</div>
+                <img src="f8.jpg" alt="Family Time">
+                <div class="description">My Father and My Mother</div>
             </div>
             <div class="image-container">
-                <img src="f3.jpg" alt="Graduation Day">
+                <img src="f3.jpg" alt="Family Time">
                 <div class="description">Celebrating Graduation with Family</div>
             </div>
             <div class="image-container">
@@ -212,7 +212,7 @@
         </div>
         <button class="nav-button right">&gt;</button>
     </div>
-    <!-- Footer -->
+    
     <footer>
         <p>&copy; 2024 Enhanced Image Gallery. All Rights Reserved.</p>
     </footer>
@@ -222,9 +222,9 @@
         const leftButton = document.querySelector('.nav-button.left');
         const rightButton = document.querySelector('.nav-button.right');
         const images = document.querySelectorAll('.image-container');
-        const containerWidth = images[0].offsetWidth + 10; // Image width + margin
+        const containerWidth = images[0].offsetWidth + 10; 
         const totalImages = images.length;
-        const visibleImages = 4; // Number of visible images
+        const visibleImages = 4; 
         let currentIndex = 0;
 
         function updateSlidePosition() {
@@ -246,7 +246,7 @@
             }
         });
 
-        // Auto Slide
+        
         setInterval(() => {
             currentIndex = (currentIndex + 1) % (totalImages - visibleImages + 1);
             updateSlidePosition();
