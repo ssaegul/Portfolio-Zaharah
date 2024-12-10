@@ -16,7 +16,7 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('background.jpg');
             background-size: cover;
             background-position: center;
-            flex-direction: column; /* Arrange sections vertically */
+            flex-direction: column;
         }
 
         .container {
@@ -83,11 +83,46 @@
             }
         }
 
-        /* Clock and Date styles */
-        .clock-date {
+        /* Styles for clock and calendar */
+        .clock-calendar {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
             color: #f4f4f4;
-            font-size: 1.5rem;
+        }
+
+        /* Calendar Style */
+        .calendar {
+            border: 2px solid #fff;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .calendar .day {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .calendar .month-year {
+            font-size: 1rem;
+        }
+
+        /* Digital Clock Style */
+        .digital-clock {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+            border-radius: 10px;
+            padding: 15px 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+            color: #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
         }
     </style>
 </head>
@@ -124,24 +159,41 @@
         <img src="gif2.gif" alt="Excited GIF">
     </div>
 
-    <!-- Clock and Date Section -->
-    <div class="clock-date" id="clockDate">
-        <!-- Clock and date will be inserted here by JavaScript -->
+    <!-- Clock and Calendar Section -->
+    <div class="clock-calendar">
+        <div class="calendar" id="calendar">
+            <div class="day">10</div>
+            <div class="month-year">December 2024</div>
+        </div>
+        <div class="digital-clock" id="digitalClock">
+            00:00:00
+        </div>
     </div>
 </div>
 
 <script>
-    function updateClockDate() {
+    function updateCalendar() {
         const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const time = now.toLocaleTimeString();
-        const date = now.toLocaleDateString(undefined, options);
+        const day = now.getDate();
+        const month = now.toLocaleString('default', { month: 'long' });
+        const year = now.getFullYear();
 
-        document.getElementById('clockDate').innerHTML = `${date}<br>${time}`;
+        document.querySelector('#calendar .day').textContent = day;
+        document.querySelector('#calendar .month-year').textContent = `${month} ${year}`;
     }
 
-    setInterval(updateClockDate, 1000); // Update every second
-    updateClockDate(); // Initial call to set the time immediately
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        document.getElementById('digitalClock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateCalendar();
+    updateClock();
 </script>
 
 </body>
