@@ -82,6 +82,13 @@
                 transform: translateY(-15px);
             }
         }
+
+        /* Clock and Date styles */
+        .clock-date {
+            margin-top: 20px;
+            color: #f4f4f4;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -116,7 +123,26 @@
     <div class="gif-after-buttons">
         <img src="gif2.gif" alt="Excited GIF">
     </div>
+
+    <!-- Clock and Date Section -->
+    <div class="clock-date" id="clockDate">
+        <!-- Clock and date will be inserted here by JavaScript -->
+    </div>
 </div>
+
+<script>
+    function updateClockDate() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const time = now.toLocaleTimeString();
+        const date = now.toLocaleDateString(undefined, options);
+
+        document.getElementById('clockDate').innerHTML = `${date}<br>${time}`;
+    }
+
+    setInterval(updateClockDate, 1000); // Update every second
+    updateClockDate(); // Initial call to set the time immediately
+</script>
 
 </body>
 </html>
